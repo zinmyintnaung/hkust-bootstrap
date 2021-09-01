@@ -83,14 +83,87 @@
                     <img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm-3 align-self-center">
-                    <a href="#reserve_now" class="btn btn-warning btn-lg btn-block"
-                     data-bs-toggle="tooltip" data-bs-html="true" title="Or Call us at  <br><strong>+852 12345678</strong>"
-                    >Reserve Table</a>
-                    
+                    <a data-bs-toggle="modal" data-bs-target="#reserveModal" class="btn btn-warning btn-lg btn-block">Reserve Table</a>
                 </div>
             </div>
         </div>
     </header>
+
+    <div id="reserveModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Reserve a Table </h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3 row">
+                            <label for="numguest" class="col-md-2 col-form-label">Number of guest</label>
+                            <div class="col-md-10" role="group">
+                                <input type="radio" name="btnradio" id="btnradio1" autocomplete="off" checked>
+                                <label for="btnradio1">1</label>
+                              
+                                <input type="radio" name="btnradio" id="btnradio2" autocomplete="off">
+                                <label for="btnradio2">2</label>
+                              
+                                <input type="radio" name="btnradio" id="btnradio3" autocomplete="off">
+                                <label for="btnradio3">3</label>
+
+                                <input type="radio" name="btnradio" id="btnradio4" autocomplete="off">
+                                <label for="btnradio4">4</label>
+
+                                <input type="radio" name="btnradio" id="btnradio5" autocomplete="off">
+                                <label for="btnradio5">5</label>
+
+                                <input type="radio" name="btnradio" id="btnradio6" autocomplete="off">
+                                <label for="btnradio6">6</label>
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="numguest" class="col-md-2 col-form-label">Section</label>
+                            <div class="col-md-6">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                        Non-Smoking
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
+                                        Smoking
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3 row">
+                            <label for="datetime" class="col-md-2 col-form-label">Date and Time</label>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Date" />
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Time"/>
+                            </div>
+                            <div class="col-md-3">
+                                
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="" class="col-md-2 col-form-label"></label>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-primary">Reserve</button>
+                            </div>
+                            <div class="col-md-3">
+                                
+                            </div>
+                            <div class="col-md-3">
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row row-content">
@@ -136,6 +209,14 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                    <div class="btn-group" id="carouselButton">
+                        <button class="btn btn-danger btn-sm" id="carousel-pause">
+                            <span class="fa fa-pause"></span>
+                        </button>
+                        <button class="btn btn-danger btn-sm" id="carousel-play">
+                            <span class="fa fa-play"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -215,7 +296,7 @@
                 </div>                
             </div>
         </div>
-
+        <!--
         <div class="row row-content justify-content-center">
             <div class="col-12 col-sm-8">
                 <div class="card" >
@@ -275,6 +356,7 @@
                 
             </div>
         </div>
+        -->
     </div>
 
     <footer>
@@ -324,6 +406,18 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 1000 } );
+            $("#carousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
+    </script>
     
 </body>
 
